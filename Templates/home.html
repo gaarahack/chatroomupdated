@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous Group Chat Room</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-image: url(https://wallpapers.com/images/hd/world-map-cyber-security-ivcowv89j1g1ff4m.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #0F0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #9AC8CD;
+            backdrop-filter: blur(5px); 
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(5px); 
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            background-color: #111;
+            color: #9AC8CD;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #9AC8CD;
+            color: #111;
+            cursor: pointer;
+            margin-top: 4vh;
+        }
+    </style>
+</head>
+<body>
+    <h1>Anonymous Group Chat Room</h1>
+    <form>
+        <label for="username">Enter your username: {do not use your real name}</label>
+        <input type="text" id="username" placeholder="Username" autocomplete="off" required>
+
+        <label for="room">Enter room key or create a new room:</label>
+        <input type="text" id="room" placeholder="Room Key" autocomplete="off" required>
+
+        <button type="button" onclick="joinRoom()">Join Room</button>
+        <button type="button" onclick="createRoom()">Create Room</button>
+    </form>
+
+    <script>
+        function joinRoom() {
+            var username = document.getElementById('username').value;
+            var room = document.getElementById('room').value;
+
+            if (username.toLowerCase().includes('rahul')) {
+                alert('Username should not contain "rahul".');
+                return;
+            }
+
+            if (username.trim() !== '' && room.trim() !== '') {
+                window.location.href = '/chat/' + room + '?username=' + encodeURIComponent(username);
+            }
+        }
+
+        function createRoom() {
+            var username = document.getElementById('username').value;
+            var room = document.getElementById('room').value;
+
+            if (username.toLowerCase().includes('rahul')) {
+                alert('Username should not contain "rahul".');
+                return;
+            }
+
+            if (username.trim() !== '' && room.trim() !== '') {
+                window.location.href = '/chat/' + room + '?username=' + encodeURIComponent(username);
+            } else {
+                alert('Please enter a username and a room key.');
+            }
+        }
+    </script>
+</body>
+</html>
