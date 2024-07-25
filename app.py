@@ -7,7 +7,7 @@ socketio = SocketIO(app)
 
 active_rooms = {}
 blocked_users = set()
-MODERATOR_PASSWORD = 'lit3x7'  # Set your moderator password here
+MODERATOR_PASSWORD = 'lit3x7' 
 
 @app.route('/')
 def home():
